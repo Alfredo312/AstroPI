@@ -98,6 +98,10 @@ sense = SenseHat()
 #Limpa o ecrâ antes de executar o código
 sense.clear()
 
+# Para dar tempo para os valores serem ajustados no emulador, é esperado que o utilizador 
+# aperte enter para o programa começar
+input("Aperte enter para começar o programa")
+
 print(get_sense_data())
 
 while is_habitable():
