@@ -1,0 +1,2 @@
+﻿Por agora, o programa só foi testado no emulador do Sense HAT online ( https://trinket.io/sense-hat ) devido á instalação da versão desktop não dar no momento.
+

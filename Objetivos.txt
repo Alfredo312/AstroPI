@@ -1,0 +1,12 @@
+﻿Modo 1, 2, 3: Inicialização
+	.Fazer backup dos dados para posterior análise +-
+
+Modo 1
+	Devido a limitações do Concurso neste ano, este modo terá de ser alterado ☐
+
+Modo 2
+	Devido a limitações do Concurso neste ano, este modo terá de ser alterado ☐
+
+Modo 3
+	.Como o emulador online ainda não implementou Threads, não é possivel rodar várias partes do Algoritmo ao mesmo tempo, então quando um dos valores medidos sair dos valores considerados normais,
+	o ecrã começará a piscar um aviso ☑

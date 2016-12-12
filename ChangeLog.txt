@@ -1,0 +1,3 @@
+﻿0.1 
+Por agora, o programa só contêm uma parte da missão secundária, que é o Modo 3 (verifica se a estação espacial está nas condições apropiadas, ou seja, Temp entre [18,27]ºC; pressão entre [980,1027]mB e humidade entre [50,70]%
+Como  o emulador é online, não acho que seja possível guardar os dados dos sensores num ficheiro no computador, então por agora os valores serão apenas apresentados na consola.
