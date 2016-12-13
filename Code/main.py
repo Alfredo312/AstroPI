@@ -1,6 +1,7 @@
 ##Esta linha fara com que o codigo suporte letras com acentos ou c com cedilha
 # -*- coding: UTF-8 -*-
 
+
 ### Libraries ###
 #Esta biblioteca serve para ler os daods do sensores do Sense HAT
 from sense_hat import SenseHat
@@ -27,9 +28,10 @@ import time
 DELAY = 1
 
 ### Functions ###
+  
 
-#Esta função irá obter os dados dos sensores necessários
 def get_sense_data():
+  """Esta função irá obter os dados dos sensores necessários"""
   sense = SenseHat()
   
   global sense_data
@@ -44,17 +46,21 @@ def get_sense_data():
   sense_data.append(time.strftime("%d-%m-%Y %H:%M:%S"))
   sleep(DELAY)
   return sense_data
-
-#Verifica se um valor x se encontra entre os valores min e máx, INCLUSIVE
+  
 def between(x, min, max):
-  return x > min and x < max
+  """Verifica se um valor x se encontra entre os valores min e máx, INCLUSIVE"""
+  return x >= min and x <= max
 
-#Verifica se a estação encontra-se em condições boas, se estiver mandará de volta o valor verdadeiro
 def is_habitable():
-  return between(sense_data[0], 18, 27) and between(sense_data[1], 18, 27) and between(sense_data[3], 980, 1027) and between(sense_data[2] ,50, 70)
-    
-#Coloca um ponto de exclamação no ecrâ, indicado que há perigo
+  """Verifica se a estação encontra-se em condições boas"""
+  return between(sense_data[0], 18, 27)  \
+  and between(sense_data[1], 18, 27)     \
+  and between(sense_data[3], 980, 1027)  \
+  and between(sense_data[2] ,50, 70)
+  
 def danger():
+  """Coloca um ponto de exclamação no ecrâ, indicado que há perigo"""
+  
   #para definir um pixel é usado uma lista com [r, g, b] (red green blue) que pode ser entre [0,255]
   
   #red
@@ -86,12 +92,13 @@ def danger():
     w, w, w, r, r, w, w, w
     ]
 
-  while True:
-    sense.set_pixels(screen1)
-    sleep(1)
-    sense.set_pixels(screen2)
-    sleep(1)
+  
+  sense.set_pixels(screen1)
+  sleep(1)
+  sense.set_pixels(screen2)
+  sleep(1)
   return 
+
 ### Main Code ###
 sense = SenseHat()
 
@@ -101,9 +108,12 @@ sense.clear()
 # Para dar tempo para os valores serem ajustados no emulador, é esperado que o utilizador 
 # aperte enter para o programa começar
 input("Aperte enter para começar o programa")
-
 print(get_sense_data())
 
-while is_habitable():
-  print(get_sense_data())
-danger()
+while True:
+  if is_habitable():
+    sense.clear()
+    print(get_sense_data())
+  else:
+    danger()
+    print(get_sense_data())
